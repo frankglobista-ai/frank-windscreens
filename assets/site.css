@@ -184,6 +184,7 @@ img{display:block;max-width:100%}
 .fab.open .fab-menu a{animation:fabItem .35s var(--ease) both}
 .fab.open .fab-menu a:nth-of-type(2){animation-delay:.04s}
 .fab.open .fab-menu a:nth-of-type(3){animation-delay:.08s}
+.fab.open .fab-menu a:nth-of-type(4){animation-delay:.12s}
 @keyframes fabItem{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 @media (max-width:560px){.fab-btn{height:52px;font-size:14px}.fab-menu{min-width:0;width:calc(100vw - 32px)}}
 @media (prefers-reduced-motion:reduce){.fab-ic .wiper,.fab.open .fab-menu a{animation:none}.fab,.fab-menu{transition:none}}

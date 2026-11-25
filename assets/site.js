@@ -3,6 +3,7 @@
   var IG = 'https://www.instagram.com/frank_windscreens_tint/';
   var FB = 'https://www.facebook.com/share/1Qfio9tNFG/';
   var MAPS = 'https://www.google.com/maps/search/?api=1&query=209+Bunda+Street+Cairns+City+QLD+4870';
+  var BOOK = 'https://book.servicem8.com/request_service_online_booking?strVendorUUID=01a1d9bd-eef0-7040-ba52-909918bd473b';
   var here = location.pathname.split('/').pop() || 'index.html';
   var links = [
     ['/windscreen-replacement.html', 'Windscreens'],
@@ -51,6 +52,7 @@
   fab.innerHTML =
     '<div class="fab-menu" id="fabMenu" role="menu" aria-label="Get a quote">' +
       '<p>Quick quote</p>' +
+      '<a role="menuitem" href="' + BOOK + '" target="_blank" rel="noopener"><i><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></i><span><b>Book online</b><small>Pick a service and a time</small></span></a>' +
       '<a role="menuitem" href="sms:' + TEL + '?&body=' + BODY + '"><i><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2"/><circle cx="12" cy="12.5" r="3.2"/><path d="M8 6l1.5-2h5L16 6"/></svg></i><span><b>Text a photo</b><small>Snap the damage, send it to Frank</small></span></a>' +
       '<a role="menuitem" href="tel:' + TEL + '"><i><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></i><span><b>Call ' + PHONE + '</b><small>Talk to Frank directly</small></span></a>' +
       '<a role="menuitem" href="/contact.html"><i><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></i><span><b>Visit the workshop</b><small>209 Bunda Street, Cairns</small></span></a>' +
@@ -85,6 +87,7 @@
     var h = a.getAttribute('href') || '', where = a.closest('.fab') ? 'quote_button' : a.closest('.nav') ? 'menu' : a.closest('.foot') ? 'footer' : 'page';
     if (h.indexOf('tel:') === 0) track('generate_lead', { method: 'phone_call', placement: where });
     else if (h.indexOf('sms:') === 0) track('generate_lead', { method: 'text_message', placement: where });
+    else if (/book\.servicem8\.com/.test(h)) track('book_online', { placement: where });
     else if (/g\.page\/r\//.test(h)) track('review_click', { action: 'leave_review', placement: where });
     else if (/maps\?cid=/.test(h)) track('review_click', { action: 'read_reviews', placement: where });
     else if (/google\.com\/maps/.test(h)) track('get_directions', { placement: where });
@@ -101,7 +104,7 @@
           '<a class="foot-phone" href="tel:' + TEL + '">' + PHONE + '</a></div>' +
         '<div><p class="foot-h">Services</p><ul>' + links.slice(0, 4).map(function (l) { return '<li><a href="' + l[0] + '">' + l[1] + '</a></li>'; }).join('') + '</ul></div>' +
         '<div><p class="foot-h">Workshop</p><ul><li><a href="' + MAPS + '" target="_blank" rel="noopener">209 Bunda Street<br>Cairns City QLD 4870</a></li><li>Next to Lifeline, opposite Cairns Central</li></ul></div>' +
-        '<div><p class="foot-h">Follow</p><ul><li><a href="' + IG + '" target="_blank" rel="noopener">Instagram</a></li><li><a href="' + FB + '" target="_blank" rel="noopener">Facebook</a></li><li><a href="https://www.google.com/maps?cid=11645218612399860823" target="_blank" rel="noopener">Google reviews</a></li><li><a href="/contact.html">Get a quote</a></li><li><a href="/privacy.html">Privacy</a></li></ul></div>' +
+        '<div><p class="foot-h">Follow</p><ul><li><a href="' + IG + '" target="_blank" rel="noopener">Instagram</a></li><li><a href="' + FB + '" target="_blank" rel="noopener">Facebook</a></li><li><a href="https://www.google.com/maps?cid=11645218612399860823" target="_blank" rel="noopener">Google reviews</a></li><li><a href="' + BOOK + '" target="_blank" rel="noopener">Book online</a></li><li><a href="/contact.html">Get a quote</a></li><li><a href="/privacy.html">Privacy</a></li></ul></div>' +
       '</div>' +
       '<div class="foot-base"><span>© 2026 Frank Windscreens &amp; Tint · Cairns, Queensland</span><span>Windscreens · Chip repairs · Tinting</span></div>';
   }
