@@ -1,7 +1,7 @@
 (function () {
   var PHONE = '0431 185 183', TEL = '0431185183';
   var IG = 'https://www.instagram.com/frank_windscreens_tint/';
-  var FB = 'https://www.facebook.com/share/1Qfio9tNFG/';
+  var FB = 'https://www.facebook.com/profile.php?id=100068637372931';
   var MAPS = 'https://www.google.com/maps/search/?api=1&query=209+Bunda+Street+Cairns+City+QLD+4870';
   var BOOK = 'https://book.servicem8.com/request_service_online_booking?strVendorUUID=01a1d9bd-eef0-7040-ba52-909918bd473b';
   var here = location.pathname.split('/').pop() || 'index.html';
